@@ -22,7 +22,7 @@ namespace RiaShooter.Scripts.UI
         public enum ViewType { Window, Popup }
 
         [field: SerializeField] public ViewType type { get; private set; } = ViewType.Window;
-        [SerializeField] bool hideOnStart = true;
+        [SerializeField] private bool hideOnStart = true;
 
         public UnityEvent<View> OnShow, OnHide;
 
@@ -85,6 +85,16 @@ namespace RiaShooter.Scripts.UI
         }
 
         /// <summary>
+        /// Скрыть окно при открытии другого окна (по событию)
+        /// </summary>
+        /// <param name="openedView">Открываемое окно</param>
+        /// <param name="hideOthers">Скрывать ли это окно при открытии другого</param>
+        private void Hide(View openedView, bool hideOthers)
+        {
+            if (this != openedView && type == openedView.type && hideOthers) Hide();
+        }
+
+        /// <summary>
         /// Скрыть окно
         /// </summary>
         public void Hide()
@@ -95,16 +105,6 @@ namespace RiaShooter.Scripts.UI
             for (int i = 0; i < iViewElements.Length; i++) iViewElements[i].OnViewHide();
 
             OnHide?.Invoke(this);
-        }
-
-        /// <summary>
-        /// Скрыть окно при открытии другого окна (по событию)
-        /// </summary>
-        /// <param name="openedView">Открываемое окно</param>
-        /// <param name="hideOthers">Скрывать ли это окно при открытии другого</param>
-        private void Hide(View openedView, bool hideOthers)
-        {
-            if (this != openedView && type == openedView.type && hideOthers) Hide();
         }
     }
 }
