@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,15 +21,13 @@ namespace RiaShooter.Scripts.UI
         /// </summary>
         public enum ViewType { Window, Popup }
 
-        [field: SerializeField] public ViewType type { get; private set; } = ViewType.Window;
-        [SerializeField] private bool hideOnStart = true;
+        [field: SerializeField] public ViewType Type { get; private set; } = ViewType.Window;
+        [SerializeField] private bool _hideOnStart = true;
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private float fadeDuration = .9f;
-
-        public UnityEvent<View> OnShow, OnHide;
-
         private IViewElement[] iViewElements;
         private bool isShown = true;
+
+        public UnityEvent<View> OnShow, OnHide;
 
         #endregion
 
@@ -46,7 +43,7 @@ namespace RiaShooter.Scripts.UI
 
         private void Start()
         {
-            if (hideOnStart) HideOnStart();
+            if (_hideOnStart) HideOnStart();
             else Show();
         }
 
@@ -78,7 +75,7 @@ namespace RiaShooter.Scripts.UI
         /// Отобразить окно
         /// </summary>
         /// <param name="hideOthers">Скрыть остальные окна этого типа</param>
-        public async void Show(bool hideOthers = true)
+        public void Show(bool hideOthers = true)
         {
             if (isShown) return;
 
@@ -98,13 +95,13 @@ namespace RiaShooter.Scripts.UI
         /// <param name="hideOthers">Скрывать ли это окно при открытии другого</param>
         private void Hide(View openedView, bool hideOthers)
         {
-            if (this != openedView && type == openedView.type && hideOthers) Hide();
+            if (this != openedView && Type == openedView.Type && hideOthers) Hide();
         }
 
         /// <summary>
         /// Скрыть окно
         /// </summary>
-        public async void Hide()
+        public void Hide()
         {
             if (!isShown) return;
 

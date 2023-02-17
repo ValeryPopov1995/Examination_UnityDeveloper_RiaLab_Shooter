@@ -11,8 +11,8 @@ namespace RiaShooter.Scripts.Pool
         [Tooltip("При отсутствии свободных экземпляров, возвращает наиболее старый экземпляр")]
         [SerializeField] bool dontReturnNull;
 
-        private List<T> pool = new List<T>();
-        private List<T> enabled = new List<T>();
+        private List<T> _pool = new List<T>();
+        private List<T> _enabled = new List<T>();
 
         private void Start()
         {
@@ -23,7 +23,7 @@ namespace RiaShooter.Scripts.Pool
         private T InstantiateNewObjectInPool()
         {
             var obj = Instantiate(prefab, transform);
-            pool.Add(obj);
+            _pool.Add(obj);
             obj.gameObject.SetActive(false);
             return obj;
         }
@@ -35,22 +35,22 @@ namespace RiaShooter.Scripts.Pool
         /// <returns>Свободный выключенный или новый (при динамическом пуле) экземпляр пула</returns>
         protected T GetObjectFromPoolInternal()
         {
-            if (pool.Count == 0) return Return(InstantiateNewObjectInPool());
+            if (_pool.Count == 0) return Return(InstantiateNewObjectInPool());
 
             UpdateEnabled();
 
-            for (int i = 0; i < pool.Count; i++)
+            for (int i = 0; i < _pool.Count; i++)
             {
-                if (!pool[i].gameObject.activeSelf)
-                    return Return(pool[i]);
+                if (!_pool[i].gameObject.activeSelf)
+                    return Return(_pool[i]);
             }
 
             if (maxCount == 0) return Return(InstantiateNewObjectInPool());
 
             if (dontReturnNull)
             {
-                var first = enabled[0];
-                enabled.RemoveAt(0);
+                var first = _enabled[0];
+                _enabled.RemoveAt(0);
                 return Return(first);
             }
 
@@ -59,17 +59,17 @@ namespace RiaShooter.Scripts.Pool
 
         private void UpdateEnabled()
         {
-            for (int i = 0; i < pool.Count; i++)
+            for (int i = 0; i < _pool.Count; i++)
             {
-                if (!pool[i].gameObject.activeSelf && enabled.Contains(pool[i]))
-                    enabled.Remove(pool[i]);
+                if (!_pool[i].gameObject.activeSelf && _enabled.Contains(_pool[i]))
+                    _enabled.Remove(_pool[i]);
             }
         }
 
         private T Return(T obj)
         {
-            if (dontReturnNull && !enabled.Contains(obj))
-                enabled.Add(obj);
+            if (dontReturnNull && !_enabled.Contains(obj))
+                _enabled.Add(obj);
 
             return obj;
         }

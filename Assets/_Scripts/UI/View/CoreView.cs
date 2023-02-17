@@ -29,7 +29,7 @@ namespace RiaShooter.Scripts.UI
         {
             LastHidenView = view;
 
-            if (view.type == View.ViewType.Window)
+            if (view.Type == View.ViewType.Window)
                 LastHidenViewWindow = view;
             else
                 LastHidenViewPopup = view;
