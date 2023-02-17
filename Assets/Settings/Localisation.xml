@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Валерий Попов</Author>
+  <LastAuthor>Валерий Попов</LastAuthor>
+  <Created>2023-02-17T10:42:12Z</Created>
+  <LastSaved>2023-02-17T10:44:29Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>17700</WindowHeight>
+  <WindowWidth>-13936</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Лист1">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="12" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="167.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="436.5" ss:Span="1"/>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s62"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">eng</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">rus</Data></Cell>
+   </Row>
+   <Row ss:Index="3">
+    <Cell ss:Index="2"><Data ss:Type="String">new game</Data></Cell>
+    <Cell><Data ss:Type="String">New game</Data></Cell>
+    <Cell><Data ss:Type="String">Новая игра</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">load game</Data></Cell>
+    <Cell><Data ss:Type="String">Load game</Data></Cell>
+    <Cell><Data ss:Type="String">Загрузить игру</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">settings</Data></Cell>
+    <Cell><Data ss:Type="String">Settings</Data></Cell>
+    <Cell><Data ss:Type="String">Настройки</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">quit</Data></Cell>
+    <Cell><Data ss:Type="String">Quit</Data></Cell>
+    <Cell><Data ss:Type="String">Выход</Data></Cell>
+   </Row>
+   <Row ss:Index="8">
+    <Cell ss:Index="2"><Data ss:Type="String">sound</Data></Cell>
+    <Cell><Data ss:Type="String">Sound</Data></Cell>
+    <Cell><Data ss:Type="String">Звуки</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">music</Data></Cell>
+    <Cell><Data ss:Type="String">Music</Data></Cell>
+    <Cell><Data ss:Type="String">Музыка</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">language</Data></Cell>
+    <Cell><Data ss:Type="String">Language</Data></Cell>
+    <Cell><Data ss:Type="String">Язык</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">post effects</Data></Cell>
+    <Cell><Data ss:Type="String">Posteffects</Data></Cell>
+    <Cell><Data ss:Type="String">Постэффекты</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">anti alizing</Data></Cell>
+    <Cell><Data ss:Type="String">Anti-Alizing</Data></Cell>
+    <Cell><Data ss:Type="String">Сглаживание</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Zoom>205</Zoom>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
