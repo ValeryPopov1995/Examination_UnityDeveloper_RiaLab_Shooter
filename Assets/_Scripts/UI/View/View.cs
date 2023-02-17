@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,8 @@ namespace RiaShooter.Scripts.UI
 
         [field: SerializeField] public ViewType type { get; private set; } = ViewType.Window;
         [SerializeField] private bool hideOnStart = true;
+        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private float fadeDuration = .9f;
 
         public UnityEvent<View> OnShow, OnHide;
 
@@ -51,6 +54,8 @@ namespace RiaShooter.Scripts.UI
         {
             isShown = false;
             gameObject.SetActive(false);
+            _canvasGroup.alpha = 0;
+            _canvasGroup.interactable = false;
         }
 
         private void OnDestroy()
@@ -73,12 +78,14 @@ namespace RiaShooter.Scripts.UI
         /// Отобразить окно
         /// </summary>
         /// <param name="hideOthers">Скрыть остальные окна этого типа</param>
-        public void Show(bool hideOthers = true)
+        public async void Show(bool hideOthers = true)
         {
             if (isShown) return;
 
             isShown = true;
             for (int i = 0; i < iViewElements.Length; i++) iViewElements[i].OnViewShow();
+
+            _canvasGroup.interactable = true;
 
             OnShow?.Invoke(this);
             onShowView?.Invoke(this, hideOthers);
@@ -97,12 +104,14 @@ namespace RiaShooter.Scripts.UI
         /// <summary>
         /// Скрыть окно
         /// </summary>
-        public void Hide()
+        public async void Hide()
         {
             if (!isShown) return;
 
             isShown = false;
             for (int i = 0; i < iViewElements.Length; i++) iViewElements[i].OnViewHide();
+
+            _canvasGroup.interactable = false;
 
             OnHide?.Invoke(this);
         }
