@@ -17,7 +17,12 @@ MonoBehaviour:
   <AmmoWeaponMax>k__BackingField: 1
   <Damage>k__BackingField: 1.5
   <FirePrefab>k__BackingField: {fileID: 0}
-  <FireSounds>k__BackingField: []
+  <SelectSound>k__BackingField: {fileID: 8300000, guid: 433fb7a3a87a20a4287b5193d5935130,
+    type: 3}
+  <FireSounds>k__BackingField:
+  - {fileID: 8300000, guid: 251a288efa141c14dae96efc9cdc5573, type: 3}
+  <ReloadSound>k__BackingField: {fileID: 8300000, guid: 69c3ec632621c55419d424adec530672,
+    type: 3}
   <SingleFire>k__BackingField: 1
   <FireDuration>k__BackingField: 0.1
   <ReloadDuration>k__BackingField: 1.5

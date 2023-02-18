@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3803804208279281757}
   - component: {fileID: 3803804208279281759}
   - component: {fileID: 3803804208279281758}
-  - component: {fileID: 1478972888872734844}
+  - component: {fileID: 6916200443864000181}
+  - component: {fileID: 3794093928526736935}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -74,7 +75,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1478972888872734844
+--- !u!114 &6916200443864000181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,9 +84,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 3803804208279281763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593b48af548bfeb4297d15273283b738, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a440d5c534bc94fb1317fd905982c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3794093928526736935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803804208279281763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560bb4235ddff594b862f6dffb9e7822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 50
 --- !u!1 &3803804208471597804
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _body: {fileID: 3803804208279281757}
   _camera: {fileID: 7486677446523978959}
-  _sensetivity: 50
+  _sensetivity: 90
 --- !u!1 &7055335978545404000
 GameObject:
   m_ObjectHideFlags: 0

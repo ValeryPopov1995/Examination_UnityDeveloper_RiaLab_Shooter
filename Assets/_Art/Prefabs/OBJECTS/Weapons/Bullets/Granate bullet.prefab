@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2235606676793562623}
   - component: {fileID: 2235606676793562622}
   - component: {fileID: 2235606676793562616}
+  - component: {fileID: 1346065815450846562}
   m_Layer: 0
   m_Name: Granate bullet
   m_TagString: Untagged
@@ -63,6 +64,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1346065815450846562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235606676793562621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f739b987694fd95429124aa6bb72a69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exploseOnTrigger: 0
+  _explosionDelay: 2
+  _explosionRadius: 5
+  _explodeEffect: {fileID: 19821056, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!1001 &2235606677796087323
 PrefabInstance:
   m_ObjectHideFlags: 0

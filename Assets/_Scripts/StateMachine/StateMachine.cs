@@ -9,7 +9,7 @@ namespace RiaShooter.Scripts.StateMachineSystem
 
         private State[] _states;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _states = GetComponentsInChildren<State>();
         }
@@ -22,8 +22,9 @@ namespace RiaShooter.Scripts.StateMachineSystem
         public void SwitchState<T>() where T : State
         {
             CurrentState?.EndState();
-            CurrentState = _states.First(x => x.GetType() is T);
+            CurrentState = _states.First(x => x is T);
             CurrentState.StartState();
+            Debug.Log($"[StateMachine] {name} switched to state {CurrentState.name}");
         }
     }
 }

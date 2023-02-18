@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2094775615574857115, guid: 55e60e7396ef072439c011b9645a0cad,
+        type: 3}
+      propertyPath: _health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -2094775615574857115, guid: 55e60e7396ef072439c011b9645a0cad,
+        type: 3}
+      propertyPath: _healthMax
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6579730772309716352, guid: 55e60e7396ef072439c011b9645a0cad,
         type: 3}
       propertyPath: m_RootOrder
@@ -100,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentState>k__BackingField: {fileID: 1817168110161999907}
-  <DetectRadius>k__BackingField: 20
-  <FireRadius>k__BackingField: 9
-  _startHealth: 40
+  <EnemyConfig>k__BackingField: {fileID: 11400000, guid: 1095b155383cf9a45965d6fe2d8ee436,
+    type: 2}
   _weapon: {fileID: 0}

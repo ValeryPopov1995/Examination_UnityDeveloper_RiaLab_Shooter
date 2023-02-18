@@ -252,6 +252,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1761451470912122466}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &6145669609104353827 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5564236052192445505, guid: b4e1785f937bdd9419a16e03bec59fbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761451470912122466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8329259335609948491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7775068915187414825, guid: b4e1785f937bdd9419a16e03bec59fbf,
@@ -272,5 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponConfig: {fileID: 11400000, guid: 3af537cb68f7bcf4b85756a50d85392b, type: 2}
   _ammoWeaponCurrent: 8
-  _ammoInventoryCurrent: 24
   _fireSpawnPoint: {fileID: 2102917129752279644}
+  _source: {fileID: 6145669609104353827}
+  _fireDistance: 50

@@ -107,10 +107,11 @@ MonoBehaviour:
   _weaponConfig: {fileID: 11400000, guid: b518c13242b2af640b5b7814f707fb6f, type: 2}
   _ammoWeaponCurrent: 1
   _fireSpawnPoint: {fileID: 4074058514464445807}
-  _granatePrefab: {fileID: 2235606676793562616, guid: 47ae5acd6d5ae6347b68806e21f21d3a,
+  _source: {fileID: 8137780965820646672}
+  _granatePrefab: {fileID: 1346065815450846562, guid: 47ae5acd6d5ae6347b68806e21f21d3a,
     type: 3}
   _force:
-    value: {x: 0, y: 0, z: 1000}
+    value: {x: 0, y: 100, z: 500}
     randomValue: 0
     randomMultiply: {x: 0.9, y: 1.1}
   _torque:
@@ -118,6 +119,12 @@ MonoBehaviour:
     randomValue: 1
     randomMultiply: {x: -100, y: 100}
   _granateVisual: {fileID: 81374741985742429}
+--- !u!82 &8137780965820646672 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5564236052192445505, guid: b4e1785f937bdd9419a16e03bec59fbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4456056303662825809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8492527301046602244
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 ﻿using RiaShooter.Scripts.Common;
-using RiaShooter.Scripts.Player;
+using RiaShooter.Scripts.Scriptable;
 using RiaShooter.Scripts.StateMachineSystem;
 using RiaShooter.Scripts.Weaponry;
 using System.Collections.Generic;
@@ -8,33 +8,38 @@ using UnityEngine.AI;
 
 namespace RiaShooter.Scripts.Enemies
 {
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(Health))]
     public abstract class Enemy : StateMachine
     {
-        [field: SerializeField, Min(1)] public int DetectRadius { get; private set; } = 20;
-        [field: SerializeField, Min(1)] public int FireRadius { get; private set; } = 9;
-        [SerializeField, Min(1)] private int _startHealth = 40;
+        [field: SerializeField] public EnemyConfig EnemyConfig { get; private set; }
         [SerializeField] private Weapon _weapon;
-        internal TriggerZone DetectZone { get; private set; }
-        internal TriggerZone FireZone { get; private set; }
+        public TriggerZone DetectZone { get; private set; }
+        public TriggerZone FireZone { get; private set; }
         private HashSet<Collider> _followTargets = new();
         private HashSet<Collider> _fireTargets = new();
-        private Collider _currentTarget;
-        private NavMeshAgent _agent;
+        private Health _health;
 
-        private void Awake()
+        protected override void Awake()
         {
-            _agent = GetComponent<NavMeshAgent>();
+            base.Awake();
+            _health = GetComponent<Health>();
+            _health.Set(EnemyConfig.Health);
+            _health.OnDie += Die;
 
-            DetectZone = TriggerZone.CreateTriggerZone(DetectRadius, transform);
-            DetectZone.AddFilter(typeof(PlayerTag));
+            DetectZone = TriggerZone.CreateTriggerZone(EnemyConfig.DetectRadius, transform);
+            DetectZone.AddFilter(typeof(Player.PlayerTag));
             DetectZone.OnEnter += AddFollowTarget;
             DetectZone.OnExit += RemoveFollowTarget;
 
-            FireZone = TriggerZone.CreateTriggerZone(FireRadius, transform);
-            FireZone.AddFilter(typeof(PlayerTag));
+            FireZone = TriggerZone.CreateTriggerZone(EnemyConfig.FireRadius, transform);
+            FireZone.AddFilter(typeof(Player.PlayerTag));
             FireZone.OnEnter += AddFireTarget;
             FireZone.OnExit += RemoveFireTarget;
+        }
+
+        private void Die()
+        {
+            SwitchState<DeathState>();
         }
 
         private void AddFireTarget(Collider obj)

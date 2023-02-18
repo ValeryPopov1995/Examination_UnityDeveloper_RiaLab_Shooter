@@ -11,7 +11,7 @@ namespace RiaShooter.Scripts.StateMachineSystem
 
         protected virtual void Awake()
         {
-            _stateMachine = GetComponent<StateMachine>();
+            _stateMachine = GetComponentInParent<StateMachine>();
         }
 
         public virtual void StartState()

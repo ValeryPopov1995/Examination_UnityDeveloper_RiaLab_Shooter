@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RiaShooter.Scripts.Common
 {
-    internal class TriggerZone : MonoBehaviour
+    public class TriggerZone : MonoBehaviour
     {
         public event Action<Collider> OnEnter, OnExit;
         private HashSet<Type> _componentFilter = new();

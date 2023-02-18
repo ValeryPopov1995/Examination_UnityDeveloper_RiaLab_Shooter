@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace RiaShooter.Scripts.Scriptable
 {
     [CreateAssetMenu(menuName = "Scriptable/Enemy Spawn")]
-    public class EnemySpawnConfig : ScriptableObject
+    internal class EnemySpawnConfig : ScriptableObject
     {
         [field: SerializeField, Min(.1f)] public float SpawnRate { get; private set; } = 2.5f;
         [field: SerializeField, Min(1)] public int TargetEnemiesCount { get; private set; } = 5;
@@ -22,7 +22,7 @@ namespace RiaShooter.Scripts.Scriptable
             public int SpawnWaight;
         }
 
-        public Enemy GetNextPrefabRandom()
+        internal Enemy GetNextPrefabRandom()
         {
             float randomWait = Random.Range(0f, EnemyDatas.Sum(x => x.SpawnWaight));
             int currentSum = 0;

@@ -11,7 +11,7 @@ namespace RiaShooter.Scripts.Player
         private void Start()
         {
             foreach (var weapon in _weapons)
-                weapon.gameObject.SetActive(false);
+                weapon.Unselect();
 
             SwitchWeapon(0);
         }
@@ -33,11 +33,12 @@ namespace RiaShooter.Scripts.Player
 
         private void SwitchWeapon(int weaponIndex)
         {
+            if (_current && _current.Reloading) return;
             if (_current == _weapons[weaponIndex]) return;
 
-            _current?.gameObject.SetActive(false);
+            _current?.Unselect();
             _current = _weapons[weaponIndex];
-            _current.gameObject.SetActive(true);
+            _current.Select();
         }
     }
 }

@@ -401,6 +401,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4e1785f937bdd9419a16e03bec59fbf, type: 3}
+--- !u!82 &278650728808452933 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5564236052192445505, guid: b4e1785f937bdd9419a16e03bec59fbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5685183656127256324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2667049698874826797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7775068915187414825, guid: b4e1785f937bdd9419a16e03bec59fbf,
@@ -422,9 +428,11 @@ MonoBehaviour:
   _weaponConfig: {fileID: 11400000, guid: ac2dbbc7854124343b0e1f9e746f627d, type: 2}
   _ammoWeaponCurrent: 1
   _fireSpawnPoint: {fileID: 5457014002216059706}
-  _granatePrefab: {fileID: 0}
+  _source: {fileID: 278650728808452933}
+  _granatePrefab: {fileID: 952374473641622092, guid: a5379c0ff9521954b98abcfcf0302eb0,
+    type: 3}
   _force:
-    value: {x: 0, y: 0, z: 0}
+    value: {x: 0, y: 0, z: 1500}
     randomValue: 0
     randomMultiply: {x: 0.9, y: 1.1}
   _torque:
