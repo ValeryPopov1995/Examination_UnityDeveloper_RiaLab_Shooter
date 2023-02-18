@@ -118,7 +118,7 @@ MonoBehaviour:
   <CurrentState>k__BackingField: {fileID: 1817168110161999907}
   <EnemyConfig>k__BackingField: {fileID: 11400000, guid: 1095b155383cf9a45965d6fe2d8ee436,
     type: 2}
-  _weapon: {fileID: 5040220580507642992}
+  <Weapon>k__BackingField: {fileID: 5040220580507642992}
 --- !u!1001 &8180920593538826892
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Лист1">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="167.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="436.5" ss:Span="1"/>
@@ -102,6 +102,11 @@
     <Cell><Data ss:Type="String">Pause</Data></Cell>
     <Cell><Data ss:Type="String">Пауза</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2"><Data ss:Type="String">menu</Data></Cell>
+    <Cell><Data ss:Type="String">Menu</Data></Cell>
+    <Cell><Data ss:Type="String">Меню</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -115,7 +120,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

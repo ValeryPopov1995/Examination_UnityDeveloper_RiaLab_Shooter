@@ -98,6 +98,11 @@ PrefabInstance:
       propertyPath: _healthMax
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3816081897237558169, guid: 55e60e7396ef072439c011b9645a0cad,
+        type: 3}
+      propertyPath: _dropCount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6579730772309716352, guid: 55e60e7396ef072439c011b9645a0cad,
         type: 3}
       propertyPath: m_RootOrder
@@ -193,7 +198,7 @@ MonoBehaviour:
   <CurrentState>k__BackingField: {fileID: 446095998161265746}
   <EnemyConfig>k__BackingField: {fileID: 11400000, guid: 66b6b08882c946043a7c3424bf8f244f,
     type: 2}
-  _weapon: {fileID: 6301323562688389897}
+  <Weapon>k__BackingField: {fileID: 6301323562688389897}
 --- !u!4 &5109161908077555735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6579730772309716352, guid: 55e60e7396ef072439c011b9645a0cad,

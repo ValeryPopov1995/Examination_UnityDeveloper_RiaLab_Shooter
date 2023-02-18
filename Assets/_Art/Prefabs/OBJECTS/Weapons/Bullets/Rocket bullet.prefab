@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f739b987694fd95429124aa6bb72a69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _exploseOnTrigger: 1
+  _exploseOnCollision: 1
   _explosionDelay: 2
   _explosionRadius: 5
   _explodeEffect: {fileID: 19821056, guid: 079954accd64b32419ec069129c81273, type: 3}

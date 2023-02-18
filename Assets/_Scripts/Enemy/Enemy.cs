@@ -2,7 +2,6 @@
 using RiaShooter.Scripts.Scriptable;
 using RiaShooter.Scripts.StateMachineSystem;
 using RiaShooter.Scripts.Weaponry;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,7 +16,7 @@ namespace RiaShooter.Scripts.Enemies
         public TriggerZone DetectZone { get; private set; }
         public NavMeshAgent Agent { get; private set; }
 
-        [SerializeField] private Weapon _weapon;
+        [field: SerializeField] public Weapon Weapon { get; private set; }
         private List<Collider> _followTargets = new();
         private Health _health;
 
@@ -58,8 +57,8 @@ namespace RiaShooter.Scripts.Enemies
 
         internal void Fire()
         {
-            Ray ray = new(_weapon.transform.position, CurrentTarget.transform.position - _weapon.transform.position);
-            _weapon?.Fire(ray);
+            Ray ray = new(Weapon.transform.position, CurrentTarget.transform.position - Weapon.transform.position);
+            Weapon?.Fire(ray);
         }
     }
 }

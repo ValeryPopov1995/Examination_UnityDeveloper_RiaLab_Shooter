@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace RiaShooter.Scripts.Weaponry
 {
-    internal abstract class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour
     {
         public event Action OnFire, OnReload, OnSelect, OnUnselect;
 

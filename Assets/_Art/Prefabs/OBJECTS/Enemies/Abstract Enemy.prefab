@@ -50,6 +50,9 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
+  _dropPrefab: {fileID: 3654529639524841490, guid: 03ec1c4ef6187854db033f58d1ff8dc6,
+    type: 3}
+  _dropCount: 1
 --- !u!1 &1535250530438302148
 GameObject:
   m_ObjectHideFlags: 0

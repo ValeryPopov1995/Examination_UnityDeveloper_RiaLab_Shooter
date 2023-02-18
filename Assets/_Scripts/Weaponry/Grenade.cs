@@ -8,7 +8,7 @@ namespace RiaShooter.Scripts.Weaponry
 {
     internal class Grenade : MonoBehaviour
     {
-        [SerializeField] private bool _exploseOnTrigger = false;
+        [SerializeField] private bool _exploseOnCollision = false;
         [SerializeField, Min(1)] private float _explosionDelay = 2;
         [SerializeField, Min(1)] private float _explosionRadius = 5;
         [SerializeField] private ParticleSystem _explodeEffect;
@@ -16,7 +16,7 @@ namespace RiaShooter.Scripts.Weaponry
 
         private async void Awake()
         {
-            if (!_exploseOnTrigger)
+            if (!_exploseOnCollision)
             {
                 await Task.Delay(TimeSpan.FromSeconds(_explosionDelay));
                 Explode();
@@ -25,7 +25,7 @@ namespace RiaShooter.Scripts.Weaponry
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (_exploseOnTrigger)
+            if (_exploseOnCollision)
                 Explode();
         }
 

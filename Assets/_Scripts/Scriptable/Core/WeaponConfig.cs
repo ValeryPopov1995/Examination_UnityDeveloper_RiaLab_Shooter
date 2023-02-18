@@ -3,7 +3,7 @@
 namespace RiaShooter.Scripts.Scriptable
 {
     [CreateAssetMenu(menuName = "Scriptable/Weapon")]
-    internal class WeaponConfig : ScriptableObject
+    public class WeaponConfig : ScriptableObject
     {
         [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public AmmoConfig AmmoConfig { get; private set; }
