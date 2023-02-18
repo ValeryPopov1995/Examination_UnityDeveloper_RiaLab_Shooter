@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace RiaShooter.Scripts.Utilities
+namespace RiaShooter.Scripts.Common
 {
     [Serializable]
     public class CustomVector3

@@ -1,4 +1,4 @@
-using RiaShooter.Scripts.Utilities;
+using RiaShooter.Scripts.Common;
 using System;
 using UnityEngine;
 

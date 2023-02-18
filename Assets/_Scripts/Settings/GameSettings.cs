@@ -22,7 +22,7 @@ namespace RiaShooter.Scripts.Settings
         [SerializeField] string _musicVolumeField;
 
         private const string _keySetttingsConfig = "game settings config";
-        private GameSettingsConfig _config;
+        private GameSettingsData _config;
         private UniversalAdditionalCameraData _cameraData;
 
 
@@ -67,7 +67,7 @@ namespace RiaShooter.Scripts.Settings
         private void LoadConfig()
         {
             if (PlayerPrefs.HasKey(_keySetttingsConfig))
-                _config = JsonUtility.FromJson<GameSettingsConfig>(PlayerPrefs.GetString(_keySetttingsConfig));
+                _config = JsonUtility.FromJson<GameSettingsData>(PlayerPrefs.GetString(_keySetttingsConfig));
             else
                 _config = new(language: 1);
         }

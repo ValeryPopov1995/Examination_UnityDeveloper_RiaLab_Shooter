@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RiaShooter.Scripts.Utilities
+namespace RiaShooter.Scripts.Common
 {
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

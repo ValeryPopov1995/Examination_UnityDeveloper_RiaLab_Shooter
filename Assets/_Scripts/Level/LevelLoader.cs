@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace RiaShooter.Scripts.Gameplay
+namespace RiaShooter.Scripts.Level
 {
     public class LevelLoader : MonoBehaviour
     {

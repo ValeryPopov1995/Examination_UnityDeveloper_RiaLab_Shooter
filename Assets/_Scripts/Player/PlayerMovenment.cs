@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RiaShooter.Scripts.PlayerInput
+namespace RiaShooter.Scripts.Player
 {
     internal class PlayerMovenment : MonoBehaviour
     {
@@ -23,7 +23,7 @@ namespace RiaShooter.Scripts.PlayerInput
                 _verticalSpeed = _jumpSpeed;
             {
                 if (CheckGround() && _verticalSpeed < 0)
-                    _verticalSpeed = 0;
+                    _verticalSpeed = -.1f;
                 else
                     _verticalSpeed -= _gravity;
             }
@@ -42,7 +42,7 @@ namespace RiaShooter.Scripts.PlayerInput
 
         private bool CheckGround()
         {
-            return Physics.CheckSphere(transform.position, .1f, _groundLayer);
+            return Physics.CheckSphere(transform.position, .2f, _groundLayer);
         }
     }
 }
