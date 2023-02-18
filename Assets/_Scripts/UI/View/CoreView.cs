@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace RiaShooter.Scripts.UI
 {
     /// <summary>
     /// Хранит последние закрытые окна для метод возврата на предыдущее окно
     /// </summary>
-    public class CoreView : MonoBehaviour
+    internal class CoreView : MonoBehaviour
     {
         public View LastHidenView { get; private set; }
         public View LastHidenViewWindow { get; private set; }

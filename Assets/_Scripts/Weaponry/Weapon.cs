@@ -9,16 +9,20 @@ namespace RiaShooter.Scripts.Weaponry
 {
     internal abstract class Weapon : MonoBehaviour
     {
+        public event Action OnFire, OnReload, OnSelect, OnUnselect;
+
         internal bool Reloading { get; private set; }
-        [SerializeField] protected WeaponConfig _weaponConfig;
-        [SerializeField] protected int _ammoWeaponCurrent;
+        [field: SerializeField] public WeaponConfig WeaponConfig { get; private set; }
+        [field: SerializeField] public int CurrentAmmoWeapon { get; protected set; }
+        public int CurrentAmmoInventory => _ammoInventory.HasAmmo(WeaponConfig.AmmoConfig);
         [SerializeField] protected Transform _fireSpawnPoint;
         [SerializeField] private AudioSource _source;
-
         private AmmoInventory _ammoInventory;
+        private Transform _camera;
 
         protected virtual void Awake()
         {
+            _camera = Camera.main.transform;
             Init();
         }
 
@@ -27,69 +31,76 @@ namespace RiaShooter.Scripts.Weaponry
             _ammoInventory ??= GetComponentInParent<AmmoInventory>();
         }
 
-        public void Select()
-        {
-            gameObject.SetActive(true);
-            PlaySound(_weaponConfig.SelectSound);
-        }
-
-        public void Unselect()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public void FireInternal()
-        {
-            if (_ammoWeaponCurrent > 0)
-            {
-                _ammoWeaponCurrent--;
-                if (_weaponConfig.FirePrefab) Instantiate(_weaponConfig.FirePrefab, _fireSpawnPoint.position, _fireSpawnPoint.rotation);
-                Fire();
-
-                PlaySound(_weaponConfig.FireSounds);
-
-                if (_ammoWeaponCurrent == 0) Reload();
-            }
-        }
-
-        internal void UpdateControl()
+        internal void UpdatePlayerControl()
         {
             if (InputFire())
-                FireInternal();
+            {
+                Ray ray = new(_camera.position, _camera.forward);
+                Fire(ray);
+            }
 
             else if (Input.GetKeyDown(KeyCode.R))
                 Reload();
         }
 
+        public void Select()
+        {
+            gameObject.SetActive(true);
+            PlaySound(WeaponConfig.SelectSound);
+            OnSelect?.Invoke();
+        }
+
+        public void Unselect()
+        {
+            gameObject.SetActive(false);
+            OnUnselect?.Invoke();
+        }
+
+        public void Fire(Ray direction)
+        {
+            if (CurrentAmmoWeapon > 0)
+            {
+                CurrentAmmoWeapon--;
+                if (WeaponConfig.FirePrefab)
+                    Instantiate(WeaponConfig.FirePrefab, _fireSpawnPoint.position, _fireSpawnPoint.rotation);
+                
+                FireInternal(direction);
+                PlaySound(WeaponConfig.FireSounds);
+                OnFire?.Invoke();
+
+                if (CurrentAmmoWeapon == 0) Reload();
+            }
+        }
+
+        protected abstract void FireInternal(Ray direction);
+
         private bool InputFire()
         {
             return
-                _weaponConfig.SingleFire && Input.GetMouseButtonDown(0)
+                WeaponConfig.SingleFire && Input.GetMouseButtonDown(0)
                 ||
-                !_weaponConfig.SingleFire && Input.GetMouseButton(0);
+                !WeaponConfig.SingleFire && Input.GetMouseButton(0);
         }
-
-        protected abstract void Fire();
 
         protected virtual async Task Reload()
         {
-            if (_ammoWeaponCurrent >= _weaponConfig.AmmoWeaponMax) return;
+            if (CurrentAmmoWeapon >= WeaponConfig.AmmoWeaponMax) return;
 
-            if (_ammoInventory.HasAmmo(_weaponConfig.AmmoConfig) > 0)
+            if (_ammoInventory.HasAmmo(WeaponConfig.AmmoConfig) > 0)
             {
                 Reloading = true;
-                PlaySound(_weaponConfig.ReloadSound);
-                await Task.Delay(TimeSpan.FromSeconds(_weaponConfig.ReloadDuration));
+                PlaySound(WeaponConfig.ReloadSound);
+                await Task.Delay(TimeSpan.FromSeconds(WeaponConfig.ReloadDuration));
                 
                 // выброшенные патроны выбрасываются окончательно
-                _ammoWeaponCurrent = _ammoInventory.TakeAmmo(_weaponConfig.AmmoConfig, _weaponConfig.AmmoWeaponMax);
+                CurrentAmmoWeapon = _ammoInventory.TakeAmmo(WeaponConfig.AmmoConfig, WeaponConfig.AmmoWeaponMax);
                 
                 // или при невыбрасывании оставшихся патронов
                 //_ammoWeaponCurrent = _ammoInventory.TakeAmmo(_weaponConfig.AmmoConfig, _weaponConfig.AmmoWeaponMax - _ammoWeaponCurrent);
                 
                 Reloading = false;
 
-                Debug.Log("[Weapon] reloaded, current = " + _ammoWeaponCurrent);
+                OnReload?.Invoke();
             }
         }
 

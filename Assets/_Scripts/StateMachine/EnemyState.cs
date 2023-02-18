@@ -7,7 +7,6 @@ namespace RiaShooter.Scripts.StateMachineSystem
     {
         protected Enemy _enemy;
         protected TriggerZone _detectZone => _enemy.DetectZone;
-        protected TriggerZone _fireZone => _enemy.FireZone;
 
         protected override void Awake()
         {

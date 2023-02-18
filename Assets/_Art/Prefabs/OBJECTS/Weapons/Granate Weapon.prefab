@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb4039e2ec1a047940a5dca398ecd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponConfig: {fileID: 11400000, guid: b518c13242b2af640b5b7814f707fb6f, type: 2}
-  _ammoWeaponCurrent: 1
+  <WeaponConfig>k__BackingField: {fileID: 11400000, guid: b518c13242b2af640b5b7814f707fb6f,
+    type: 2}
+  <CurrentAmmoWeapon>k__BackingField: 1
   _fireSpawnPoint: {fileID: 4074058514464445807}
   _source: {fileID: 8137780965820646672}
   _granatePrefab: {fileID: 1346065815450846562, guid: 47ae5acd6d5ae6347b68806e21f21d3a,

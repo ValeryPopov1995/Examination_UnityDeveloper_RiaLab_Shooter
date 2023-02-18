@@ -18,15 +18,16 @@ namespace RiaShooter.Scripts.Weaponry
             _camera = Camera.main.transform;
         }
 
-        protected override void Fire()
+        protected override void FireInternal(Ray direction)
         {
-            var grenade = Instantiate(_granatePrefab, _fireSpawnPoint.position, _camera.rotation);
-            grenade.SetDamage(_weaponConfig.Damage);
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, direction.direction);
+            var grenade = Instantiate(_granatePrefab, _fireSpawnPoint.position, rotation);
+            grenade.SetDamage(WeaponConfig.Damage);
             var rigid = grenade.GetComponent<Rigidbody>();
             rigid.AddForce(Camera.main.transform.TransformDirection(_force));
             rigid.AddTorque(_torque);
 
-            if (_ammoWeaponCurrent == 0)
+            if (CurrentAmmoWeapon == 0)
                 _granateVisual?.SetActive(false);
         }
 
@@ -34,7 +35,7 @@ namespace RiaShooter.Scripts.Weaponry
         {
             await base.Reload();
 
-            if (_ammoWeaponCurrent > 0)
+            if (CurrentAmmoWeapon > 0)
                 _granateVisual?.SetActive(true);
         }
     }

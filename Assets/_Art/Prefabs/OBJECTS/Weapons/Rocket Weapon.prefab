@@ -339,6 +339,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386994263167702078, guid: b4e1785f937bdd9419a16e03bec59fbf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1623430080225281138, guid: b4e1785f937bdd9419a16e03bec59fbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -425,8 +430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb4039e2ec1a047940a5dca398ecd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponConfig: {fileID: 11400000, guid: ac2dbbc7854124343b0e1f9e746f627d, type: 2}
-  _ammoWeaponCurrent: 1
+  <WeaponConfig>k__BackingField: {fileID: 11400000, guid: ac2dbbc7854124343b0e1f9e746f627d,
+    type: 2}
+  <CurrentAmmoWeapon>k__BackingField: 1
   _fireSpawnPoint: {fileID: 5457014002216059706}
   _source: {fileID: 278650728808452933}
   _granatePrefab: {fileID: 952374473641622092, guid: a5379c0ff9521954b98abcfcf0302eb0,

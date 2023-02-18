@@ -7,19 +7,19 @@ namespace RiaShooter.Scripts.Common
     {
         public event Action OnTakeDamage, OnDie;
 
-        public bool IsAlive => _health > 0;
-        private float _healthMax = 10;
-        private float _health = 10;
+        public bool IsAlive => CurrentHealth > 0;
+        public float MaxHealth { get; private set; } = 10;
+        public float CurrentHealth { get; private set; } = 10;
 
         public void TakeDamage(float damage)
         {
             if (damage <= 0) return;
 
-            _health = Mathf.Clamp(_health - damage, 0, _healthMax);
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
             OnTakeDamage?.Invoke();
             Debug.Log("[Health] take damage " + damage);
 
-            if (_health == 0) Die();
+            if (CurrentHealth == 0) Die();
         }
 
         private void Die()
@@ -29,7 +29,7 @@ namespace RiaShooter.Scripts.Common
 
         internal void Set(int health)
         {
-            _healthMax = _health = health;
+            MaxHealth = CurrentHealth = health;
         }
     }
 }

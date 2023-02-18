@@ -5,12 +5,12 @@ namespace RiaShooter.Scripts.Player
 {
     internal class PlayerWeapons : MonoBehaviour
     {
-        [SerializeField] private Weapon[] _weapons;
+        [field: SerializeField] public Weapon[] Weapons { get; private set; }
         private Weapon _current;
 
         private void Start()
         {
-            foreach (var weapon in _weapons)
+            foreach (var weapon in Weapons)
                 weapon.Unselect();
 
             SwitchWeapon(0);
@@ -19,7 +19,7 @@ namespace RiaShooter.Scripts.Player
         private void Update()
         {
             UpdateSwitchWeapon();
-            _current.UpdateControl();
+            _current.UpdatePlayerControl();
         }
 
         private void UpdateSwitchWeapon()
@@ -34,10 +34,10 @@ namespace RiaShooter.Scripts.Player
         private void SwitchWeapon(int weaponIndex)
         {
             if (_current && _current.Reloading) return;
-            if (_current == _weapons[weaponIndex]) return;
+            if (_current == Weapons[weaponIndex]) return;
 
             _current?.Unselect();
-            _current = _weapons[weaponIndex];
+            _current = Weapons[weaponIndex];
             _current.Select();
         }
     }

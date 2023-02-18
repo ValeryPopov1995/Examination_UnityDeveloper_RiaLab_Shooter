@@ -25,8 +25,6 @@ namespace RiaShooter.Scripts.Settings
         private GameSettingsData _config;
         private UniversalAdditionalCameraData _cameraData;
 
-
-
         private void Awake()
         {
             _cameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();

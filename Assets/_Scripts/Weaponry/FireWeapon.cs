@@ -15,12 +15,12 @@ namespace RiaShooter.Scripts.Weaponry
             _camera = Camera.main.transform;
         }
 
-        protected override void Fire()
+        protected override void FireInternal(Ray direction)
         {
-            var hits = Physics.RaycastAll(_camera.position, _camera.forward, _fireDistance);
+            var hits = Physics.RaycastAll(direction, _fireDistance);
             var hit = hits.FirstOrDefault(x => x.transform.GetComponent<Health>());
             if (hit.transform)
-                hit.transform.GetComponent<Health>().TakeDamage(_weaponConfig.Damage);
+                hit.transform.GetComponent<Health>().TakeDamage(WeaponConfig.Damage);
         }
     }
 }

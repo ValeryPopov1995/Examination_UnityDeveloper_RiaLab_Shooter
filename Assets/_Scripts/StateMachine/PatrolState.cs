@@ -10,7 +10,6 @@ namespace RiaShooter.Scripts.StateMachineSystem
     {
         [SerializeField, Min(1)] private int _patrolRadius = 5;
         [SerializeField, Min(1)] private Vector2 _patrolDelay = new(1, 3);
-        private NavMeshAgent _agent;
         private Vector3 targetPoint;
 
         protected override void Awake()
@@ -22,7 +21,6 @@ namespace RiaShooter.Scripts.StateMachineSystem
         public override void StartState()
         {
             base.StartState();
-            _agent ??= GetComponentInParent<NavMeshAgent>();
             StartCoroutine(PatrolCoroutine());
             _detectZone.OnEnter += SwitchToFollow;
         }
@@ -50,7 +48,7 @@ namespace RiaShooter.Scripts.StateMachineSystem
             {
                 yield return new WaitForSeconds(Random.Range(_patrolDelay.x, _patrolDelay.y));
                 Vector3 destination = Vector3Utils.GetPointInCircle(targetPoint, _patrolRadius);
-                _agent.SetDestination(destination);
+                _enemy.Agent.SetDestination(destination);
             }
         }
     }

@@ -276,8 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2be134e9e97df543882a587099d3bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponConfig: {fileID: 11400000, guid: 3af537cb68f7bcf4b85756a50d85392b, type: 2}
-  _ammoWeaponCurrent: 8
+  <WeaponConfig>k__BackingField: {fileID: 11400000, guid: 3af537cb68f7bcf4b85756a50d85392b,
+    type: 2}
+  <CurrentAmmoWeapon>k__BackingField: 8
   _fireSpawnPoint: {fileID: 2102917129752279644}
   _source: {fileID: 6145669609104353827}
   _fireDistance: 50
