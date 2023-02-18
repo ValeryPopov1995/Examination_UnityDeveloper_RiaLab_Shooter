@@ -93,4 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnRadius>k__BackingField: 5.5
-  _prefab: {fileID: 0}
+  _rocketmanPrefab: {fileID: 2715474308114951461, guid: c35be49cdcb75c547ad5946a0742e130,
+    type: 3}

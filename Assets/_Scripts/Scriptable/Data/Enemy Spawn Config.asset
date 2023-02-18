@@ -13,4 +13,15 @@ MonoBehaviour:
   m_Name: Enemy Spawn Config
   m_EditorClassIdentifier: 
   <SpawnRate>k__BackingField: 2.5
-  <MaxEnemiesCount>k__BackingField: 5
+  <TargetEnemiesCount>k__BackingField: 9
+  <UsePreInstallSpawners>k__BackingField: 1
+  <EnemyDatas>k__BackingField:
+  - Prefab: {fileID: 3673658845251689397, guid: f6c00fdde1c353b42b247149184e53e6,
+      type: 3}
+    SpawnWaight: 5
+  - Prefab: {fileID: 5599811545341229953, guid: f5064500723ced14ca120efd8274a2b5,
+      type: 3}
+    SpawnWaight: 5
+  - Prefab: {fileID: 2715474308114951461, guid: c35be49cdcb75c547ad5946a0742e130,
+      type: 3}
+    SpawnWaight: 1

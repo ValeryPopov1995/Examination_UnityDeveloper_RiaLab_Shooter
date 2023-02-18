@@ -1,5 +1,4 @@
 ﻿using RiaShooter.Scripts.Weaponry;
-using System;
 using UnityEngine;
 
 namespace RiaShooter.Scripts.Player
@@ -8,6 +7,14 @@ namespace RiaShooter.Scripts.Player
     {
         [SerializeField] private Weapon[] _weapons;
         private Weapon _current;
+
+        private void Start()
+        {
+            foreach (var weapon in _weapons)
+                weapon.gameObject.SetActive(false);
+
+            SwitchWeapon(0);
+        }
 
         private void Update()
         {
@@ -19,17 +26,18 @@ namespace RiaShooter.Scripts.Player
         {
             if (!Input.anyKeyDown) return;
 
-            if (Input.GetKey(KeyCode.Alpha1)) SwitchWeapon(1);
-            else if (Input.GetKey(KeyCode.Alpha2)) SwitchWeapon(2);
-            else if (Input.GetKey(KeyCode.Alpha3)) SwitchWeapon(3);
+            if (Input.GetKey(KeyCode.Alpha1)) SwitchWeapon(0);
+            else if (Input.GetKey(KeyCode.Alpha2)) SwitchWeapon(1);
+            else if (Input.GetKey(KeyCode.Alpha3)) SwitchWeapon(2);
         }
 
-        private void SwitchWeapon(int weaponIndexFromOne)
+        private void SwitchWeapon(int weaponIndex)
         {
-            int weaponIndex = weaponIndexFromOne--;
             if (_current == _weapons[weaponIndex]) return;
 
+            _current?.gameObject.SetActive(false);
             _current = _weapons[weaponIndex];
+            _current.gameObject.SetActive(true);
         }
     }
 }

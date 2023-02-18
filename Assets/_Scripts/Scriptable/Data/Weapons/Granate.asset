@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da158ba7f7fecf84288923353221bf72, type: 3}
+  m_Name: Granate
+  m_EditorClassIdentifier: 
+  <AmmoConfig>k__BackingField: {fileID: 11400000, guid: c432ad200a6c31b4a818c49a30082e58,
+    type: 2}
+  <AmmoWeaponMax>k__BackingField: 1
+  <Damage>k__BackingField: 1.5
+  <FirePrefab>k__BackingField: {fileID: 0}
+  <FireSounds>k__BackingField: []
+  <SingleFire>k__BackingField: 1
+  <FireDuration>k__BackingField: 0.1
+  <ReloadDuration>k__BackingField: 1.5

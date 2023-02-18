@@ -21,6 +21,7 @@ namespace RiaShooter.Scripts.Player
         {
             if (CanJump())
                 _verticalSpeed = _jumpSpeed;
+            else
             {
                 if (CheckGround() && _verticalSpeed < 0)
                     _verticalSpeed = -.1f;
@@ -42,7 +43,7 @@ namespace RiaShooter.Scripts.Player
 
         private bool CheckGround()
         {
-            return Physics.CheckSphere(transform.position, .2f, _groundLayer);
+            return Physics.CheckSphere(transform.position, .2f, _groundLayer, QueryTriggerInteraction.Ignore);
         }
     }
 }

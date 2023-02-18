@@ -93,4 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnRadius>k__BackingField: 5.5
-  _prefab: {fileID: 0}
+  _policePrefab: {fileID: 5599811545341229953, guid: f5064500723ced14ca120efd8274a2b5,
+    type: 3}

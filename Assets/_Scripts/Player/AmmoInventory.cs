@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RiaShooter.Scripts.Player
 {
-    internal class PlayerAmmo : MonoBehaviour
+    internal class AmmoInventory : MonoBehaviour
     {
         [SerializeField] AmmoConfig[] _ammoConfigs;
         private Dictionary<AmmoConfig, InventoryAmmo> _inventoryAmmos = new();
@@ -14,6 +14,11 @@ namespace RiaShooter.Scripts.Player
         {
             foreach (var ammo in _ammoConfigs)
                 _inventoryAmmos.Add(ammo, new InventoryAmmo(ammo, ammo.AmmoInventoryMax));
+        }
+
+        public int HasAmmo(AmmoConfig ammoConfig)
+        {
+            return _inventoryAmmos[ammoConfig].CurrentAmmo;
         }
 
         public void AddAmmo(AmmoConfig ammoConfig, int gettingAmmo)
@@ -25,12 +30,13 @@ namespace RiaShooter.Scripts.Player
         public int TakeAmmo(AmmoConfig ammoConfig, int needAmmo)
         {
             int getedAmmo = _inventoryAmmos[ammoConfig].TakeAmmo(needAmmo);
+
             Debug.Log($"[InventoryAmmo] take ammo {ammoConfig}, current = {_inventoryAmmos[ammoConfig].CurrentAmmo}");
             return getedAmmo;
         }
 
         [Serializable]
-        private struct InventoryAmmo
+        private class InventoryAmmo
         {
             public InventoryAmmo(AmmoConfig ammoConfig, int currentAmmo)
             {
